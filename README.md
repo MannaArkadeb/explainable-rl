@@ -1,5 +1,5 @@
 # Explainable Reinforcement Learning Through Causality
-A structural causal model (SCM) approach to explainable reinforcement learning, developed as part of my MEng Final Year Project at Imperial College London.
+A structural causal model (SCM) approach to explainable reinforcement learning.
 
 This project extends previous work by Madumal et al. [[1]](#1) to develop and implement a fully domain-agnostic explanation generation approach. By detecting the underlying causal relationships, and with our novel explanation generation algorithm, we ensure that this tool is generalisable to a range of RL environments.
 
