@@ -48,6 +48,7 @@ class PolicyGradient(RLAgent):
             128,
             self.env.action_space.n)
         self.policy.apply(self.policy.init_weights)
+        self.policy = self.policy.double()  # Convert model to float64 to match DoubleTensor inputs
         self.lr = 0.01
         self.optimiser = optim.Adam(self.policy.parameters(), self.lr)
 

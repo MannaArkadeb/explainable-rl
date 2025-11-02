@@ -11,8 +11,9 @@ import dill as pickle
 from random import choice
 from rl_algorithms.SARSA import SARSA
 from rl_algorithms.policy_gradient import PolicyGradient
-from rl_algorithms.DQN import DQN
-from rl_algorithms.DDQN import DDQN
+# Lazy imports for TensorFlow-dependent algorithms
+# from rl_algorithms.DQN import DQN
+# from rl_algorithms.DDQN import DDQN
 from rl_algorithms.A2C import A2C
 from structural_causal_model import StructuralCausalModel
 import time
@@ -56,11 +57,13 @@ def get_rl_algorithm(args, env):
     if args.rl == "pg":
         return PolicyGradient(env)
     elif args.rl == "dqn":
+        from rl_algorithms.DQN import DQN
         agent = DQN(env.action_space, env.state_space)
         agent.model.load_weights("output/trained_rl_agents/mountaincar_dqn.h5")
 
         return agent
     elif args.rl == "ddqn":
+        from rl_algorithms.DDQN import DDQN
         if args.env == "cartpole":
             # Since the default hyperparameters are tuned to Lunar Lander
             return DDQN(
